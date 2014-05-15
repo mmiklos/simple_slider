@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ember.js • Slider</title>
+    <link rel="stylesheet" href="sliderstyle.css">
+  </head>
+  <body>
+    <script type='text/x-handlebars' data-template-name='slider'>
+
+        {{outlet}}
+
+    </script>
+  
+  <script type='text/x-handlebars' data-template-name='slider/index'>
+    <section id="testbox">
+      <section id='wrapper'>
+         
+        {{#view Slider.PauseView }}
+          <div id='innerwrapper'>
+            <div id='slider'>
+              {{#each itemController="slider"}}
+                <img {{bind-attr src=img class="transTime:slider-image:hidden" }} />
+              {{/each}}
+
+            </div>
+         </div>
+        <div id='thumbnail-bar'>
+            {{#each itemController="slider"}}
+              <!--{{action 'period'}}-->
+                <span {{bind-attr class='transTime:active:inactive' }} >
+                &nbsp;&bull;&nbsp;</span>
+            {{/each}}
+          {{/view}}
+        </div>
+      </section>
+    </section>
+  </script>
+  
+  <script type='text/x-handlebars' data-template-name='slider/images/thumbnail'>
+   //Not working, cennot connect additional outlet
+    {{#each itemController="slider"}}
+      <p>1</p>&nbsp;&middot;&nbsp;
+    {{/each}}
+  </script>
+
+    
+
+  <script src="js/libs/jquery-1.10.2.min.js"></script>
+  <script src="js/libs/handlebars-1.0.0.js"></script>
+  <script src="js/libs/ember.min.js"></script>
+  <script src="js/libs/ember-data.js"></script>
+  <script src="js/libs/localstorage_adapter.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/router.js"></script>
+  <script src="js/model/slider.js"></script>
+  <script src="js/views/pause.js"></script>
+  <script src="js/controllers/slider_controller.js"></script>
+  <!--<script src="js/views/edit_todo_views.js"></script>-->
+  </body>
+</html>
